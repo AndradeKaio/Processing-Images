@@ -18,20 +18,20 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import processing.Classify;
 import processing.Timer;
-
+/*
+ * Classe utilizada para dispor informacoes dos resultados
+ * das classificacoes
+ */
 public class Results extends Application
 {
-	private long timeResults;
-	private int WIDHT = 525;
-	private int HEIGHT = 580;
+	private int WIDHT = 520;
+	private int HEIGHT = 480;
 	
-	private MessagePane messagePane;
 	
 	private Stage stage;
 	private Pane paneGraph;
 	private Scene scene;
 	private BorderPane root;
-	private TextArea taResults;
 	private PlotGraphs plot;
 	private ArrayList<Double> accumulator;
 
@@ -41,17 +41,15 @@ public class Results extends Application
 	{
 		stage         = primaryStage;
 		root          = new BorderPane();
-		messagePane   = new MessagePane();
 		plot 		  = new PlotGraphs();
 		accumulator   = new ArrayList<>();
 
 		
-		root.setTop(thisTextArea());
 		root.setCenter(thisPaneCenter());
 		
 		
 		scene = new Scene(root, WIDHT, HEIGHT);
-		stage.setTitle("Results of classification");
+		stage.setTitle("Results Classification");
 		stage.setScene(scene);
 		stage.setResizable(false);
 		stage.show();	
@@ -70,21 +68,7 @@ public class Results extends Application
 		p =  plot.plot();
 		return p;
 	}
-	/**
-	 * Adicionar informacoes no campo de texto
-	 */
-	public void getInformations()
-	{
-		taResults.setText(Timer.result());
-	}
-	
-	public TextArea thisTextArea()
-	{
-		taResults   = new TextArea("TESTE");
-		taResults.setEditable(false);
-		taResults.setFocusTraversable(false);
-		return taResults;
-	}
+
 	
 	public Pane thisPaneCenter()
 	{

@@ -12,18 +12,14 @@ public class PlotGraphs
 {
 	
 	/* Variaveis que receberam os resultados das calssificacoes*/
-	//private static XYChart.Series classeOne, classeTwo, classeThree, classeFour;
 	static XYChart.Series classeOne;
 	static XYChart.Series classeTwo;
 	static XYChart.Series classeThree;
 	static XYChart.Series classeFour;
-	private static final NumberAxis xAxis = new NumberAxis(0, 10, 1);
-	private static final NumberAxis yAxis = new NumberAxis(0, 10, 1);
+	private static final NumberAxis xAxis = new NumberAxis(0, 10, 1); //max
+	private static final NumberAxis yAxis = new NumberAxis(0, 10, 1); //max
 	private static ScatterChart<Number, Number> sc      = new ScatterChart<Number, Number>(xAxis, yAxis);
-	/* Limites para cada eixo */
-	
-	/* Scatterplot */
-	//private static ScatterChart<Number, Number> sc = null;
+
 		
 	public PlotGraphs() 
 	{
@@ -61,7 +57,7 @@ public class PlotGraphs
 		Pane p = new Pane();
 		//xAxis.setLabel("XXXXXXXXXXXXXX");
 		//yAxis.setLabel("YYYYYYYYYYYYYY");
-		sc.setTitle("Results Classification");
+		sc.setTitle("Classification");
 		classeOne.setName("Classe 1");
 		classeTwo.setName("Classe 2");
 		classeThree.setName("Classe 3");

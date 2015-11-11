@@ -2,20 +2,21 @@ package gui;
 
 import java.io.File;
 
-import processing.Classify;
-import processing.ImageManager;
-import processing.Timer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioMenuItem;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
+import javafx.stage.Stage;
+import processing.Classify;
+import processing.ImageManager;
+import processing.Timer;
 
 public class MyMenuBar extends MenuBar
 {
@@ -157,6 +158,14 @@ public class MyMenuBar extends MenuBar
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("Open editor - Ctrl+E");
+                Janelamento janel = new Janelamento();
+                Stage a  = new Stage();
+                try {
+					janel.start(a);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
                 
                 
             }

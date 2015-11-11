@@ -137,7 +137,6 @@ public class FeaturesSelectorAndFunctions extends HBox {
 				try {
 					results.start(a);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				

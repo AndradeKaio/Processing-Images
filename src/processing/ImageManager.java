@@ -54,7 +54,7 @@ public class ImageManager
 	{
 		Mat mat = Imgcodecs.imread(file.getPath(), Imgcodecs.IMREAD_GRAYSCALE);
        /* Contrast  mat.convertTo(mat, mat.type(), 200);*/
-       mat.convertTo(mat, mat.type(), 2.2, 200);
+       // Testesmat.convertTo(mat, mat.type(), 2.2, 200);
        
 //		
 //		if(mat.empty()){
@@ -113,7 +113,7 @@ public class ImageManager
 	public static Image fileChooserAndConvert(Stage mainStage)
 	{
 		FileChooser fileChooser = new FileChooser();
-		fileChooser.setTitle("Open Resource File");
+		fileChooser.setTitle(" Resource File");
 		fileChooser.getExtensionFilters().addAll(
 		         new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif", "*.dicom", "*.tiff"));
 

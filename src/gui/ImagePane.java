@@ -19,6 +19,7 @@ import javafx.scene.input.MouseEvent;
 public class ImagePane extends ScrollPane implements EventHandler<KeyEvent>{
 	public Group group;
 	public Mat image;
+	public Mat sub_image;
 	
 	public ImageSelection imageSelection;
 	
@@ -74,7 +75,7 @@ public class ImagePane extends ScrollPane implements EventHandler<KeyEvent>{
 //                    		&& (event.getX()>bounds.getMinX()) 
 //                    		&& (event.getY()<bounds.getMaxY()) 
 //                    		&& (event.getY()>bounds.getMinY())){
-                    	Mat sub_image = image.submat(
+                    	 sub_image = image.submat(
                     			(int)(Math.max(bounds.getMinY(),0)), 
                     			(int)(Math.min(bounds.getMaxY(),image_height)), 
                     			(int)(Math.max(bounds.getMinX(),0)), 
@@ -116,6 +117,20 @@ public class ImagePane extends ScrollPane implements EventHandler<KeyEvent>{
 		}
 	}
 	
+	public boolean isSubImageReady(){
+		if(sub_image != null){
+			if(sub_image.empty() == false){
+				return true;
+			}else{
+				System.out.println("Erro: imagem vazia");
+				return false;
+			}
+		}else{
+			System.out.println("Erro: imagem null");
+			return false;
+		}
+	}
+	
 	
 	
 	public boolean isGroupReady(){
@@ -124,6 +139,19 @@ public class ImagePane extends ScrollPane implements EventHandler<KeyEvent>{
 		}else{
 			System.out.println("Erro: grupo vazio");
 			return false;
+		}
+	}
+	
+	public Mat getSubImage()
+	{
+		if(sub_image != null && !sub_image.empty())
+		{
+			return sub_image;
+		}
+		else
+		{
+			System.out.println("Sub imagem não foi selecionada");
+			return null;
 		}
 	}
 
